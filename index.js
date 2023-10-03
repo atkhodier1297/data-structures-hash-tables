@@ -46,3 +46,39 @@ const carPrices = {
 
 // Keep in mind that in JavaScript, object keys are always converted to strings. 
 // This can lead to unexpected behavior if you use non-string keys, as they will be automatically converted to strings. If you need to use non-string keys, you may consider using a Map data structure instead, which allows for any data type as keys.
+
+// Hash Maps have super fast data access
+// Data is accessed one way through the input
+// Having the generated code without knowing the input gives you no access to that data
+// This is called INDEPODENT 
+// A function given an input always outputs the same thing
+// In JS objects are Hash Maps
+// Key Value Pairs
+// Unlike arrays where you have ordered indexes
+// With HM all you have to do is give it a key to get that data.
+// Arrays are great for push and pop, but require more work to shift and unshift data.
+// You do not want the hash function to take a long time to get and retrieve properties.
+// That will slow things down
+// We have a key then hash function hashes it very fast and then it stores in a memory address.
+// Typically a time complexity of O(1) INSERT LOOKUP DELETE SEARCH
+
+let user = {
+  age: 54,
+  name: 'Adam',
+  magic: true,
+  scream: function() {
+    console.log("ahhhhhhh")
+  }
+}
+ // All placed in memory at different addresses.
+
+ user.age // O(1)
+ user.spell = "abra cadabra" // O(1)
+ user.scream // O(1)
+
+ // Hash collisions in memory
+ // With enough data and limited memory you will eventually have a collision
+ // This actually stores two KV at the same memory address
+ // Creates a Linked List which is a future data structure
+ // Collisions slow down hash functions A LOT
+ // Collisions create O(n)
