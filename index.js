@@ -50,7 +50,7 @@ const carPrices = {
 // Hash Maps have super fast data access
 // Data is accessed one way through the input
 // Having the generated code without knowing the input gives you no access to that data
-// This is called INDEPODENT 
+// This is called IDEMPOTENT 
 // A function given an input always outputs the same thing
 // In JS objects are Hash Maps
 // Key Value Pairs
@@ -82,3 +82,43 @@ let user = {
  // Creates a Linked List which is a future data structure
  // Collisions slow down hash functions A LOT
  // Collisions create O(n)
+
+ const a = new Map()
+ // allows you tp save any data type as key
+ // you can now have any data type for key and value in JS
+ // functions strings int all can be keys and values now
+ // hash maps insert data in random memory places
+ // there is no order like there is in arrays
+ // But now Map allows you to maintain order in a hash table
+
+ const b = new Sets()
+// allows you to store the keys with no values
+// every lang has hash table DS they're all just called different things
+// hash maps are called dictionaries in Python
+
+// Let's build a Hash Map from scratch in JS
+// Not needed in an interview
+
+class HashTable {
+  constructor(size) {
+    this.data = newArray(size)
+    [['grapes', 100]]
+  }
+// your hash function
+  _hash(key) {
+    let hash = 0
+    for (let i = 0; i < key.length; i++) {
+      hash = hash + key.charCodeAt((i) * i) % 
+      this.data.length
+    }
+    return hash
+  }
+}
+
+// allocating memory
+const myHashTable = newHashTable(50)
+// sets first key value to first memory channel
+myHashTable.set('grapes', 1000)
+// gets value by looking up key O(1)
+myHashTable.get("grapes")
+
