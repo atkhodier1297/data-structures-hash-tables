@@ -95,9 +95,6 @@ const b = new Set();
 // every lang has hash table DS they're all just called different things
 // hash maps are called dictionaries in Python
 
-// Let's build a Hash Map from scratch in JS
-// Not needed in an interview
-
 class HashTable {
   constructor(size) {
     this.data = new Array(size);
@@ -107,9 +104,10 @@ class HashTable {
     // underscore _hash creates a private property
     let hash = 0;
     for (let i = 0; i < key.length; i++) {
-        hash = (hash + key.charCodeAt(i) * i) %
-          // character code gives you the number code for each string item in JS
-          this.data.length;
+      hash =
+        (hash + key.charCodeAt(i) * i) %
+        // character code gives you the number code for each string item in JS
+        this.data.length;
       // console.log(hash)
       // the console log loops through "grapes" and spits out each unique char code
     }
@@ -135,23 +133,41 @@ class HashTable {
     if (currentBucket) {
       //loop over bucket if key matches the [0] index then give us the [1] value
       for (let i = 0; i < currentBucket.length; i++) {
-        if(currentBucket[i] [0] === key) {
-          return currentBucket[i] [1]
+        if (currentBucket[i][0] === key) {
+          return currentBucket[i][1];
         }
       }
-    } // O(1) if no collisions
-    // in our poor example with a short hash function and 2 mem spaces
-    // the Big O is O(n)
+    }
     return undefined;
   }
+  keys() {
+    // allows us to iterate through our keys
+    const keysArray = [];
+    for (let i = 0; this.data.length; i++) {
+      // loops over entire 50 channel memory space
+      if (this.data[i]) {
+        keysArray.push(this.data[i][0][0]);
+        // grabs the array within the array which is the key without the value
+      }
+    }
+    return keysArray;
+  }
 }
-
 // allocating memory
 const myHashTable = new HashTable(50);
 
-myHashTable.set("grapes", 1000),
+myHashTable.set("grapes", 1000) 
 result = myHashTable.get("grapes");
-myHashTable.set("apples", 50)
-resultTwo = myHashTable.get("apples")
-console.log(result)
-console.log(resultTwo)
+myHashTable.set("apples", 50);
+resultTwo = myHashTable.get("apples");
+myHashTable.set("oranges", 130);
+myHashTable.set("plums", 300);
+// console.log(result)
+// console.log(resultTwo)
+keysOnly = myHashTable.keys()
+console.log(keysOnly)
+// if this was an array we would simply loop over it 4 times
+// now we have 50 memory spaces imagine we had 50k
+// you can see a major difference between arrays and hash tables here
+// thats why there are diff use cases for arrays and objects
+
